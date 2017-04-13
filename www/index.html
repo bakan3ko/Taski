@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+        <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+        <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Taski</title>
+    </head>
+
+    <body>
+        <div class="splashScreen">
+        	<div class="logo"></div>
+        	<div class="textLogo"></div>
+          <p class="copyrights"></p>
+        </div>
+        <main>
+            <nav class="topNav">
+                <div class="textLogo"></div>
+                <div class="logo"></div>
+            </nav>
+            <nav class="bottomNav">
+                <div class="tab schedule">
+                    <div class="icon schedule"></div>
+                     <span>Schedule</span>
+                </div>
+                <!-- <div class="tab tasks">
+                    <div class="icon tasks"></div>
+                     <span>Tasks</span>
+                </div> -->
+                <div class="tab logs">
+                    <div class="icon logs"></div>
+                     <span>Log</span>
+                </div>
+            </nav>
+            <section id="schedule">
+                <div class="addBtn"></div>
+                <div class="searchWrap">
+                    <div class="search">
+                        <div class="searchIcon"></div>
+                        <input type="text" name="search" value="search">
+                    </div>
+                </div>
+                <div class="scheduleTasks">
+                  <div class="first"></div>
+                  <div class="second"></div>
+                  <div class="third"></div>
+                </div>
+            </section>
+            <section id="add">
+                <form class="addForm" action="index.html" method="post">
+                     <h1>Add a Task</h1>
+                    <input type="hidden" id="process" class="field" value="queue">
+                    <input type="text" id="title" class="field title" placeholder="Title" required>
+                    <select class="field hours addHours" id="hours" placeholder="HH" required>
+                        <option value="" disabled selected>HH</option>
+                    </select>
+                    <select class="field minutes addMin" id="min" placeholder="MM" required>
+                        <option value="" disabled selected>MM</option>
+                    </select>
+                    <select class="field repeat" id="repeat" required>
+                        <option value="" disabled selected>Repeat</option>
+                        <option value="1">Daily</option>
+                        <option value="2">2 Days</option>
+                        <option value="3">3 Days</option>
+                        <option value="4">4 Days</option>
+                        <option value="5">5 Days</option>
+                        <option value="6">6 Days</option>
+                        <option value="7">Weekly</option>
+                        <option value="8">Monthly</option>
+                    </select>
+                    <select class="field hour" id="startHour" required>
+                        <option value="" disabled selected>HH</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select class="field min addMin" id="startMin" required>
+                        <option value="" disabled selected>MM</option>
+                    </select>
+                    <select class="field amPm" id="amPm" required>
+                        <option value="" disabled selected>AM</option>
+                        <option value="AM" selected>AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                    <textarea id="decription" class="field description" placeholder="Description"></textarea>
+                    <input type="checkbox" class="field" id="log" checked>
+                    <label for="log">Add to Log</label>
+                    <!-- <input type="checkbox" class="field" id="save" checked> -->
+                    <!-- <label for="save">Save Task</label> -->
+                    <div class="buttons">
+                        <div class="addTask">Add a Task</div>
+                        <div class="cancelBtn">Cancel</div>
+                    </div>
+                </form>
+            </section>
+            <section id="tasks">
+
+            </section>
+            <section id="logs">
+              <div class="scheduleTasksLog">
+
+              </div>
+            </section>
+        </main>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+
+</html>
